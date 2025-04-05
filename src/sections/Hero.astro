@@ -3,8 +3,25 @@
 ---
 
 <div class="relative h-full">
+    <!-- <div
+        class="glass-overlay absolute bottom-0 left-0 z-20 h-full w-full pointer-events-none grid grid-cols-10 grid-rows-10"
+    > -->
+    <video autoplay muted loop id="myVideo" class="absolute w-full">
+        <source src="/img/bg.webm" type="video/webm" />
+    </video>
+    <div
+        class="glass-overlay absolute bottom-0 left-0 z-20 h-full w-full pointer-events-none flex gap-0"
+    >
+        {
+            new Array(25)
+                .fill(0)
+                .map((_, index) => <div class="glass bg-lime-400" />)
+        }
+    </div>
+    <div class="ball bg-blue-400"></div>
+
     <div class="mx-auto lg:mx-20">
-        <div class="relative z-10 pt-14 lg:w-full lg:max-w-2xl">
+        <div class="relative z-40 pt-14 lg:w-full lg:max-w-2xl">
             <div class="relative px-6 py-32 lg:px-8 lg:pr-0">
                 <div
                     class="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl bg-white px-10 py-10 rounded-2xl"
@@ -54,7 +71,7 @@
             </div>
         </div>
     </div>
-    <div class="bg-slate-400 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+    <div class="bg-slate-400">
         <!-- <img
             alt=""
             src="https://images.unsplash.com/photo-1483389127117-b6a2102724ae?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1587&q=80"
@@ -62,3 +79,47 @@
         /> -->
     </div>
 </div>
+<script src="../scripts/index.js"></script>
+
+<style>
+    .glass {
+        width: 4svw;
+        background: linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.05) 10%,
+            rgba(4, 9, 20, 0) 70%,
+            rgba(255, 255, 255, 0.1) 110%
+        );
+        backdrop-filter: blur(12px);
+        /* backdrop-filter: blur(14px); */
+    }
+
+    .ball {
+        /* background: blue; */
+        width: 310px;
+        height: 310px;
+        border-radius: 50%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translate(-50%, -50%);
+        /* mix-blend-mode: difference; */
+    }
+
+    .ball:before {
+        content: "";
+        position: absolute;
+        top: 1%;
+        left: 5%;
+        width: 90%;
+        height: 90%;
+        border-radius: 50%;
+        background: radial-gradient(
+            circle at 50% 0px,
+            #ffffff,
+            rgba(255, 255, 255, 0) 58%
+        );
+        -webkit-filter: blur(5px);
+        z-index: 2;
+    }
+</style>
