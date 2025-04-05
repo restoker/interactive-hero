@@ -1,0 +1,49 @@
+---
+import Header from "../components/Header.astro";
+import "../styles/global.css";
+
+interface Props {
+	title?: string;
+}
+
+const { title = "Interactive Hero section" } = Astro.props;
+// const preloadImg = "/img/lolalolitaland-hero.webp";
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- <link rel="preload" as="image" href={preloadImg} /> -->
+		<title>{title}</title>
+		<meta
+			name="description"
+			content="Evento organizado por Lola Lolita. Atracciones, música y muchísimos otros influencers presentes en uno de los mayores eventos organizados en España por una estrella de las redes sociales."
+		/>
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta property="og:title" content="Lola Lolita Land" />
+		<meta
+			property="og:description"
+			content="Lola Lolita Land te espera el 14 y 15 de junio en Aquópolis Madrid. Vive dos días de diversión con un parque acuático lleno de sorpresas, toboganes y piscinas. Celebra el inicio del verano con una experiencia única, la segunda edición de este evento lleno de invitados especiales y momentos inolvidables. Un día para disfrutar con amigos y familiares, y crear recuerdos juntos."
+		/>
+		<!-- <meta property="og:image" content="/images/lolalolitaland-hero.webp" /> -->
+		<!-- <meta property="og:url" content="https://www.lolalolitaland.com/" /> -->
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content="Lola Lolita Land" />
+		<meta name="twitter:card" content="photo" />
+		<meta name="twitter:title" content="Lola Lolita Land" />
+		<meta
+			name="twitter:description"
+			content="Lola Lolita Land te espera el 14 y 15 de junio en Aquópolis Madrid. Vive dos días de diversión con un parque acuático lleno de sorpresas, toboganes y piscinas. Celebra el inicio del verano con una experiencia única, la segunda edición de este evento lleno de invitados especiales y momentos inolvidables. Un día para disfrutar con amigos y familiares, y crear recuerdos juntos."
+		/>
+		<!-- <meta name="twitter:image" content="/images/lolalolitaland-hero.webp" /> -->
+		<!-- <meta name="twitter:url" content="https://www.lolalolitaland.com/" /> -->
+	</head>
+	<body>
+		<div class="bg-slate-400 h-svh">
+			<Header />
+			<slot />
+		</div>
+	</body>
+</html>
