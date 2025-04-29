@@ -13,7 +13,7 @@
         class="glass-overlay absolute bottom-0 left-0 z-20 h-full w-full pointer-events-none flex gap-0"
     >
         {
-            new Array(25)
+            new Array(26)
                 .fill(0)
                 .map((_, index) => <div class="glass bg-lime-400" />)
         }
@@ -23,49 +23,55 @@
     <div class="mx-auto lg:mx-20">
         <div class="relative z-40 pt-14 lg:w-full lg:max-w-2xl">
             <div class="relative px-6 py-32 lg:px-8 lg:pr-0">
-                <div
-                    class="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl bg-white px-10 py-10 rounded-2xl"
-                >
-                    <div class="sm:mb-10">
+                <div>
+                    <div
+                        class="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl bg-white px-10 py-10 rounded-2xl inverted-radius1 inverted-radius2"
+                    >
                         <div
-                            class="relative px-3 py-8 text-sm/6 text-gray-500 sr-only"
+                            class='absolute -right-0.5 -bottom-6 h-14 w-14 flex items-center justify-center before:content-[""] before:absolute before:w-14 before:h-14 before:top-8 before:-left-0.5 before:rounded-tr-4xl before:shadow-[12px_-12px_0px_rgba(255,255,255,1)] before:bg-transparent'
                         >
+                        </div>
+                        <div class="sm:mb-10">
+                            <div
+                                class="relative p-3 text-sm/6 text-gray-500 sr-only"
+                            >
+                                <!-- <a
+                                    href="#"
+                                    class="font-semibold whitespace-nowrap text-blue-600"
+                                >
+                                    <span
+                                        aria-hidden="true"
+                                        class="absolute inset-0"></span>
+                                    Read more <span aria-hidden="true">&rarr;</span>
+                                </a> -->
+                            </div>
+                        </div>
+                        <h1
+                            class="text-5xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-7xl"
+                        >
+                            Track your Data With Morphic
+                        </h1>
+                        <p
+                            class="mt-8 text-lg font-medium text-pretty text-gray-500 sm:text-xl/8"
+                        >
+                            Anim aute id magna aliqua ad ad non deserunt sunt.
+                            Qui irure qui lorem cupidatat commodo. Elit sunt
+                            amet fugiat veniam occaecat fugiat aliqua.
+                        </p>
+                        <div class="mt-10 flex items-center gap-x-6">
+                            <a
+                                href="#"
+                                class="rounded-md bg-blue-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-blue-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+                            >
+                                Get started
+                            </a>
                             <!-- <a
                                 href="#"
-                                class="font-semibold whitespace-nowrap text-blue-600"
+                                class="text-sm/6 font-semibold text-gray-900"
                             >
-                                <span
-                                    aria-hidden="true"
-                                    class="absolute inset-0"></span>
-                                Read more <span aria-hidden="true">&rarr;</span>
+                                Learn more <span aria-hidden="true">→</span>
                             </a> -->
                         </div>
-                    </div>
-                    <h1
-                        class="text-5xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-7xl"
-                    >
-                        Track your Data With Morphic
-                    </h1>
-                    <p
-                        class="mt-8 text-lg font-medium text-pretty text-gray-500 sm:text-xl/8"
-                    >
-                        Anim aute id magna aliqua ad ad non deserunt sunt. Qui
-                        irure qui lorem cupidatat commodo. Elit sunt amet fugiat
-                        veniam occaecat fugiat aliqua.
-                    </p>
-                    <div class="mt-10 flex items-center gap-x-6">
-                        <a
-                            href="#"
-                            class="rounded-md bg-blue-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-blue-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
-                        >
-                            Get started
-                        </a>
-                        <!-- <a
-                            href="#"
-                            class="text-sm/6 font-semibold text-gray-900"
-                        >
-                            Learn more <span aria-hidden="true">→</span>
-                        </a> -->
                     </div>
                 </div>
             </div>
@@ -121,5 +127,27 @@
         );
         -webkit-filter: blur(5px);
         z-index: 2;
+    }
+
+    .inverted-radius1 {
+        --r: 20px; /* the radius */
+        --s: 30px; /* size of inner curve */
+        --x: 100px; /* horizontal offset (no percentage) */
+        --y: 30px; /* vertical offset (no percentage) */
+
+        aspect-ratio: 1;
+        border-radius: var(--r);
+        --_m: /calc(2 * var(--r)) calc(2 * var(--r)) radial-gradient(#000 70%, #0000
+                    72%);
+        --_g: conic-gradient(at var(--r) var(--r), #000 75%, #0000 0);
+        --_d: (var(--s) + var(--r));
+        mask:
+            calc(var(--_d) + var(--x)) 0 var(--_m),
+            0 calc(var(--_d) + var(--y)) var(--_m),
+            radial-gradient(var(--s) at 0 0, #0000 99%, #000 calc(100% + 1px))
+                calc(var(--r) + var(--x)) calc(var(--r) + var(--y)),
+            var(--_g) calc(var(--_d) + var(--x)) 0,
+            var(--_g) 0 calc(var(--_d) + var(--y));
+        mask-repeat: no-repeat;
     }
 </style>
